@@ -2,17 +2,21 @@
 name = "sds011"
 version = "0.1.0"
 authors = ["Chris Ballinger <chrisballinger@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+clap = "2.32"
+log = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+serial = "0.4"
+
+env_logger = "0.6"
 
 [[bin]]
 name = "sds011"
+path = "src/sds011.rs"
 doc = false
 
-[dependencies]
-serial = "0.4"
-clap = "2.28.0"
-num = "0.1.41"
-enum_primitive = "0.1.1"
-csv = "1.0.0-beta.5"
-serde_derive = "1.0.24"
-serde = "1.0.24"
-chrono = { version = "0.4", features = ["serde"] }
+[features]
+default = ["validation"]
+validation = []
